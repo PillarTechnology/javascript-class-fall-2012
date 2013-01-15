@@ -114,4 +114,16 @@ describe('Calculator view', function () {
 
         expect(calculator.subtract).toHaveBeenCalledWith(3, 2);
     });
+
+    it('can add three and two and two', function () {
+        calculator.lastResult.andReturn(5);
+        container.find('#btn3').click();
+        container.find('#btnplus').click();
+        container.find('#btn2').click();
+        container.find('#btnequal').click();
+        container.find('#btnequal').click();
+
+        expect(calculator.add).toHaveBeenCalledWith(3, 2);
+        expect(calculator.add).toHaveBeenCalledWith(5, 2);
+    });
 });
