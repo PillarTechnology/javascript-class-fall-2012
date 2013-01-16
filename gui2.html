@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>awesome calculator</title>
+
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <script type="text/javascript" src="lib/jquery.js"></script>
+    <script type="text/javascript" src="lib/underscore.js"></script>
+    <script type="text/javascript" src="lib/backbone.js"></script>
+  <script type="text/javascript" src="src/Calculator.js"></script>
+  <script type="text/javascript" src="src/CalculatorView2.js"></script>
+</head>
+<body>
+  <div class="calculator">
+  </div>
+  <script type="text/javascript">
+    $(function() {
+        var model = {
+            buttons: [[
+                {label: 7},
+                {label: 8},
+                {label: 9}],
+                [{label: 4},
+                {label: 5},
+                {label: 6}],
+                [{label: 1},
+                {label: 2},
+                {label: 3}],
+                [{label: 0},
+                {label: '.'}],
+                [{label: 'C', operator: 'clear'}, {label: '=', operator: 'equal'}, {label: '+', operator: 'add'},
+                {label: '-', operator: 'subtract'},
+                {label: '*', operator: 'multiply'},
+                {label: '/', operator: 'divide'}]],
+            calculator: new Calculator()
+        };
+        var view = new CalculatorView2({
+            model: model
+        });
+        view.render().$el.appendTo($('.calculator'));
+    });
+  </script>
+</body>
+</html>
